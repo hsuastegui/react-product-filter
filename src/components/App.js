@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Products from './Products';
+import api from '../tools/api';
 import './App.css';
 
 class App extends Component {
@@ -10,18 +11,11 @@ class App extends Component {
     };
   }
   componentDidMount(){
-    fetch('/data/products.json',{
-
-    })
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(data){
+    api.get('/data/products.json').then(function(data){
       this.setState({
         products: data.products
       });
     }.bind(this));
-    
   }
   render() {
     return (
