@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+describe('app rendering', () => {
+  it('renders without crashing', () => {
+    expect(shallow(<App />).find('.App').length).toBe(1);
+  });
 });
